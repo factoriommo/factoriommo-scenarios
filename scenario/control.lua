@@ -37,13 +37,17 @@ end
 
 function number_to_readable(num)
     num = tonumber(num)
-    if (num > 10000) then
-        return math.floor(num / 1000) .. "k"
+    if(num) then
+      if (num > 10000) then
+          return math.floor(num / 1000) .. "k"
+      end
+      if (num > 1000) then
+          return math.floor(num / 1000) .. "." .. math.floor((num % 1000) / 100) .. "k"
+      end
+      return num
+    else
+      return " "
     end
-    if (num > 1000) then
-        return math.floor(num / 1000) .. "." .. math.floor((num % 1000) / 100) .. "k"
-    end
-    return num
 end
 
 function get_player_online_count()
@@ -99,9 +103,9 @@ script.on_event(defines.events.on_player_joined_game, function(event)
     print("##FMC::player_joined::" .. player.name)
     global.local_players = get_player_online_count()
 
-    player.print("Welcome to [EU] /r/factorioMMO. Griefers WILL be banned.")  -- TODO: no test in string there
+    player.print("Welcome to [EU] /r/factorioMMO.")  -- TODO: no test in string there
     player.print("There are currently " .. global.local_players .. " players on this server.")
-
+    --
     player.print("See the stickied post on /r/factorioMMO for rules and more details.")
 
     call_hook(current_event, 'on_player_joined_game', {player = player, game = game});
