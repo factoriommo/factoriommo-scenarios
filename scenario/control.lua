@@ -99,10 +99,10 @@ script.on_event(defines.events.on_player_joined_game, function(event)
     print("##FMC::player_joined::" .. player.name)
     global.local_players = get_player_online_count()
 
-    player.print("-- Welcome to [EU] /r/factorioMMO. Griefers WILL be banned.")  -- TODO: no test in string there
-    player.print("-- There are currently " .. global.local_players .. " players on this server.")
+    player.print("Welcome to [EU] /r/factorioMMO. Griefers WILL be banned.")  -- TODO: no test in string there
+    player.print("There are currently " .. global.local_players .. " players on this server.")
 
-    player.print("-- See the stickied post on /r/factorioMMO for rules and more details.")
+    player.print("See the stickied post on /r/factorioMMO for rules and more details.")
 
     call_hook(current_event, 'on_player_joined_game', {player = player, game = game});
 end)
