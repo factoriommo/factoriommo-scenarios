@@ -219,8 +219,16 @@ remote.add_interface("rconstats", {
             stats.rem.alien_science = value
             return
         end
-        if (statname == "p_module") then
+        if (statname == "productivity-module-3") then
             stats.rem.p_module = value
+            return
+        end
+        if (statname == "efficiency-module-3") then
+            stats.rem.e_module = value
+            return
+        end
+        if (statname == "speed-module-3") then
+            stats.rem.s_module = value
             return
         end
         if (statname == "rocket-progress") then
