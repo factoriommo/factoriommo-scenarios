@@ -194,7 +194,7 @@ script.on_init(function()
     global.local_rocket_progress = 0
     global.remote_rocket_progress = 0
 
-    current_event.on_init(game)
+    -- current_event.on_init(game)
 end)
 
 remote.add_interface("rconstats", {
